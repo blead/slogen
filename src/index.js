@@ -1,1 +1,2 @@
-console.log('It works!');
+import 'normalize.css';
+import './index.css';
