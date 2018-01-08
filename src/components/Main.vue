@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import { generateSlogan } from '../generator';
+
 export default {
   name: 'Main',
+  created: () => {
+    console.log('generateSlogan:', generateSlogan);
+  }
 };
 </script>
 
