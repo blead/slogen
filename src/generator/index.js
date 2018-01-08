@@ -16,9 +16,12 @@ const randomInt = (bound, bound2) => {
 
 /* eslint-disable no-unused-vars */
 const generateSlogan = (config) => { /* eslint-enable */
+  if (config == undefined) {
+    config = {};
+  }
   const minTokens = config.minTokens || 1;
   const maxTokens = config.maxTokens || tokens.length;
-  const expectedLength = randomInt(minTokens, maxTokens);
+  const expectedLength = randomInt(minTokens, maxTokens + 1);
 
   const result = [];
   const temp = tokens.slice();
