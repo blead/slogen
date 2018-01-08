@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import { generateSlogan } from '../generator';
+import SloganGenerator from '../generator';
 
 export default {
   name: 'Main',
   created: () => {
-    console.log('generateSlogan:', generateSlogan);
+    console.log(SloganGenerator.generateSlogan());
   }
 };
 </script>

@@ -1,4 +1,4 @@
-import { tokens } from './tokens';
+import tokens from './tokens';
 
 const randomInt = (bound, bound2) => {
   // bound2 is optional, when passing bound2, random between [bound, bound2)
@@ -11,7 +11,7 @@ const randomInt = (bound, bound2) => {
 };
 
 const generateSlogan = () => {
-  const expectedLength = randomInt(tokens.length);
+  const expectedLength = randomInt(1, tokens.length + 1);
   const result = [];
 
   const temp = tokens.slice();

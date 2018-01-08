@@ -6,6 +6,4 @@ const tokens = [
   'token5',
 ];
 
-export default {
-  tokens,
-};
+export default tokens;
