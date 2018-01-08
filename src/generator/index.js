@@ -1,3 +1,7 @@
+/*
+  Main Slogan Generating Engine
+*/
+
 import tokens from './tokens';
 
 const randomInt = (bound, bound2) => {
@@ -10,10 +14,13 @@ const randomInt = (bound, bound2) => {
   }
 };
 
-const generateSlogan = () => {
-  const expectedLength = randomInt(1, tokens.length + 1);
-  const result = [];
+/* eslint-disable no-unused-vars */
+const generateSlogan = (config) => { /* eslint-enable */
+  const minTokens = config.minTokens || 1;
+  const maxTokens = config.maxTokens || tokens.length;
+  const expectedLength = randomInt(minTokens, maxTokens);
 
+  const result = [];
   const temp = tokens.slice();
   while (result.length < expectedLength) {
     const t = randomInt(temp.length);
