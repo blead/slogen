@@ -28,17 +28,13 @@ Required: [Git](http://git-scm.com), [Node.js](http://nodejs.org)
 - Starting a development server
 
     ```shell
-    npm start
+    npm run dev
     ```
 
-  The default port is `8080`. To use a specific port e.g. `8000`:
-
-    ```shell
-    npm start -- --port 8000
-    ```
+  The default port is `8080`.
 
 - Building for production
     ```shell
     npm run build
     ```
-  The resulting files can be located inside `dist` directory.
+  The resulting files can be located inside `build` directory.
