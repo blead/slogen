@@ -7,9 +7,9 @@
       <Main/>
     </div>
     <div class="hero-foot">
-      <button class="button is-light is-radiusless is-fullwidth">
+      <router-link :to="{ name: 'Configure' }" class="button is-light is-radiusless is-fullwidth">
         Configure
-      </button>
+      </router-link>
     </div>
   </section>
 </template>
