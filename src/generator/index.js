@@ -9,15 +9,14 @@ const randomInt = (bound, bound2) => {
   // else random between [0, bound)
   if (bound2 !== undefined) {
     return Math.floor((Math.random() * (bound2 - bound)) + bound);
-  } else {
-    return Math.floor(Math.random() * bound);
   }
+  return Math.floor(Math.random() * bound);
 };
 
 /* eslint-disable no-unused-vars */
 const generateSlogan = (config = {}) => { /* eslint-enable */
-  const minTokens = config.minTokens || 1;
-  const maxTokens = config.maxTokens || tokens.length;
+  const minTokens = config.minTokens || 3;
+  const maxTokens = config.maxTokens || 6;
   const expectedLength = randomInt(minTokens, maxTokens + 1);
 
   const result = [];
