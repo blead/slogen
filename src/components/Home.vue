@@ -10,6 +10,7 @@
       <button class="button is-light is-radiusless is-fullwidth">
         Configure
       </button>
+      <ConfigPanel />
     </div>
   </section>
 </template>
@@ -17,12 +18,14 @@
 <script>
 import Nav from './Nav';
 import Main from './Main';
+import ConfigPanel from './ConfigPanel';
 
 export default {
   name: 'Home',
   components: {
     Nav,
     Main,
+    ConfigPanel,
   },
 };
 </script>
