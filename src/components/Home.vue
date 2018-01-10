@@ -10,7 +10,7 @@
         <Nav/>
       </div>
       <div class="hero-body">
-        <Main/>
+        <Main :slogan="slogan" @generate-slogan="$emit('generate-slogan')"/>
       </div>
       <div class="hero-foot">
         <router-link :to="{ name: 'Customize' }" class="button is-light is-radiusless is-fullwidth">
@@ -30,6 +30,9 @@ export default {
   components: {
     Nav,
     Main,
+  },
+  props: {
+    slogan: String,
   },
 };
 </script>

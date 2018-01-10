@@ -27,11 +27,11 @@
           <div class="card">
             <div class="card-content">
               <div class="content">
-                Custom slogan
+                {{ slogan }}
               </div>
             </div>
             <footer class="card-footer">
-              <a class="card-footer-item">Generate</a>
+              <a class="card-footer-item" @click="$emit('generate-slogan')">Generate</a>
             </footer>
           </div>
         </div>
@@ -43,6 +43,9 @@
 <script>
 export default {
   name: 'Customize',
+  props: {
+    slogan: String,
+  },
 };
 </script>
 
