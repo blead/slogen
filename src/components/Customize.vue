@@ -31,7 +31,6 @@ export default {
 }
 .slide-enter-active {
   animation: 1s slide-in;
-  overflow: hidden;
 }
 .slide-leave-active {
   animation: 1s reverse slide-in;
