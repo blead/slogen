@@ -6,23 +6,11 @@
     @before-leave="$emit('before-leave')"
   >
     <div class="is-overlay">
-      <div class="bar is-light">
-        <div class="container">
-          <div class="level is-mobile">
-            <div class="level-left">
-              <div class="level-item">
-                <h1 class="title">Customize</h1>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item">
-                <router-link :to="{ name: 'Home' }" class="delete is-large"/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <section class="section is-light">
+      <Bar class="is-light">
+        <h1 class="title">Customize</h1>
+        <router-link :to="{ name: 'Home' }" class="delete is-large" slot="right"/>
+      </Bar>
+      <section class="section">
         <div class="container">
           <div class="card">
             <div class="card-content">
@@ -41,8 +29,13 @@
 </template>
 
 <script>
+import Bar from './Bar';
+
 export default {
   name: 'Customize',
+  components: {
+    Bar,
+  },
   props: {
     slogan: String,
   },
@@ -55,11 +48,7 @@ export default {
   z-index: 1;
   background-color: white;
 }
-.bar {
-  min-height: 3.25rem;
-  padding: 0.5rem 1rem;
-}
-.bar.is-light {
+.is-light {
   background-color: whitesmoke;
   color: #363636;
 }
