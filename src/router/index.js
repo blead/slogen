@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
 import Home from '@/components/Home';
-import Configure from '@/components/Configure';
+import Customize from '@/components/Customize';
 
 Vue.use(Router);
 Vue.use(Buefy);
@@ -16,9 +16,9 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/config',
-      name: 'Configure',
-      component: Configure,
+      path: '/custom',
+      name: 'Customize',
+      component: Customize,
     },
   ],
 });
