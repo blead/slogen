@@ -5,12 +5,38 @@
     @after-enter="$emit('after-enter')"
     @before-leave="$emit('before-leave')"
   >
-    <section class="section is-overlay is-light">
-      <div class="container">
-        <router-link :to="{ name: 'Home' }" class="delete is-large is-pulled-right"/>
-        <h1 class="title">Customize</h1>
+    <div class="is-overlay">
+      <div class="bar is-light">
+        <div class="container">
+          <div class="level is-mobile">
+            <div class="level-left">
+              <div class="level-item">
+                <h1 class="title">Customize</h1>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <router-link :to="{ name: 'Home' }" class="delete is-large"/>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+      <section class="section is-light">
+        <div class="container">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                Custom slogan
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a class="card-footer-item">Generate</a>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </div>
   </transition>
 </template>
 
@@ -24,8 +50,13 @@ export default {
 .is-overlay {
   position: absolute;
   z-index: 1;
+  background-color: white;
 }
-.section.is-light {
+.bar {
+  min-height: 3.25rem;
+  padding: 0.5rem 1rem;
+}
+.bar.is-light {
   background-color: whitesmoke;
   color: #363636;
 }
