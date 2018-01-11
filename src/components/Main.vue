@@ -1,6 +1,6 @@
 <template>
-  <div class="container has-text-centered">
-    <h1 class="title is-1">
+  <div class="container has-text-centered-desktop">
+    <h1 class="title is-size-1-desktop">
       {{ slogan }}
     </h1>
     <button class="button is-primary is-large" @click="handleClick">Generate</button>
@@ -8,18 +8,14 @@
 </template>
 
 <script>
-import Generator from '../generator';
-
 export default {
   name: 'Main',
-  data() {
-    return {
-      slogan: 'Generate your slogan',
-    };
+  props: {
+    slogan: String,
   },
   methods: {
     handleClick() {
-      this.slogan = Generator.generateSlogan();
+      this.$emit('generate-slogan');
     },
   },
 };
