@@ -8,7 +8,7 @@
     <div class="is-overlay">
       <Bar class="is-light">
         <h1 class="title">Customize</h1>
-        <router-link :to="{ name: 'Home' }" class="delete is-large" slot="right"/>
+        <button class="delete is-large" slot="right" @click="$router.go(-1)">Back</button>
       </Bar>
       <section class="section">
         <div class="container">

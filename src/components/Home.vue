@@ -1,6 +1,6 @@
 <template>
   <transition
-    name="fade"
+    name="delayed-fade"
     @before-enter="$emit('before-enter')"
     @after-enter="$emit('after-enter')"
     @before-leave="$emit('before-leave')"
@@ -10,12 +10,14 @@
         <Nav/>
       </div>
       <div class="hero-body">
-        <Main :slogan="slogan" @generate-slogan="$emit('generate-slogan')"/>
+        <transition name="fade" mode="out-in">
+          <router-view :slogan="slogan" @generate-slogan="$emit('generate-slogan')"/>
+        </transition>
       </div>
       <div class="hero-foot">
-        <router-link :to="{ name: 'Customize' }" class="button is-light is-radiusless is-fullwidth">
-          Customize
-        </router-link>
+          <router-link :to="{ name: 'Customize' }" class="button is-light is-radiusless is-fullwidth">
+            Customize
+          </router-link>
       </div>
     </section>
   </transition>
@@ -38,10 +40,10 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active {
+.delayed-fade-enter-active {
   animation: 2s ease-out fade-in;
 }
-.fade-leave-active {
+.delayed-fade-leave-active {
   animation: 2s ease-in reverse fade-in;
 }
 @keyframes fade-in {
@@ -54,5 +56,11 @@ export default {
   100% {
     opacity: 1;
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
