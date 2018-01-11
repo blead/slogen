@@ -4,7 +4,7 @@
     @before-enter="$emit('before-enter')"
     @after-enter="$emit('after-enter')"
     @before-leave="$emit('before-leave')"
-  >
+    >
     <div class="is-overlay">
       <Bar class="is-light">
         <h1 class="title">Customize</h1>
@@ -14,15 +14,17 @@
         <div class="container">
           <div class="card">
             <div class="card-content">
-              <div class="content">
-                {{ slogan }}
+              <div class="content has-text-centered">
+                <h5>{{ slogan }}</h5>
+                <button class="button is-primary" @click="$emit('generate-slogan')">Generate</button>
               </div>
             </div>
-            <footer class="card-footer">
-              <a class="card-footer-item" @click="$emit('generate-slogan')">Generate</a>
-            </footer>
           </div>
         </div>
+      </section>
+      <section class="section">
+        <customize-panel
+        @change-config="$emit('change-config', arguments[0])"/>
       </section>
     </div>
   </transition>
@@ -30,11 +32,13 @@
 
 <script>
 import Bar from './Bar';
+import CustomizePanel from './CustomizePanel'
 
 export default {
   name: 'Customize',
   components: {
     Bar,
+    CustomizePanel,
   },
   props: {
     slogan: String,
@@ -53,10 +57,10 @@ export default {
   color: #363636;
 }
 .slide-enter-active {
-  animation: 1s slide-in;
+  animation: 0.2s slide-in;
 }
 .slide-leave-active {
-  animation: 1s reverse slide-in;
+  animation: 0.2s reverse slide-in;
 }
 @keyframes slide-in {
   0% {

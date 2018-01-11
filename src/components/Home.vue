@@ -11,7 +11,10 @@
       </div>
       <div class="hero-body">
         <transition name="fade" mode="out-in">
-          <router-view :slogan="slogan" @generate-slogan="$emit('generate-slogan')"/>
+          <router-view :slogan="slogan" 
+          @generate-slogan="$emit('generate-slogan')"
+          @change-config="$emit('change-config', arguments[0])"
+          />
         </transition>
       </div>
       <div class="hero-foot">

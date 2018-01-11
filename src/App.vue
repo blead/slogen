@@ -5,14 +5,14 @@
       @after-enter="setTransition(false)"
       @before-leave="setTransition(true)"
       @generate-slogan="generateSlogan"
+      @change-config="receiveConfigChange"
       :slogan="slogan"
     />
   </div>
 </template>
 
 <script>
-const getSlogan = () =>
-  Math.random().toString(36).concat(Date.now().toString(36)).substring(2);
+import Generator from './generator';
 
 export default {
   name: 'app',
@@ -20,14 +20,19 @@ export default {
     return {
       isTransitionActive: false,
       slogan: 'Generate your slogan',
+      config: {}
     };
   },
   methods: {
     setTransition(isActive = true) {
       this.isTransitionActive = isActive;
     },
+    receiveConfigChange(config) {
+      this.config = Object.assign(this.config, config, this.config);
+      console.log(this.config);
+    },
     generateSlogan() {
-      this.slogan = getSlogan();
+      this.slogan = Generator.generateSlogan(this.config);
     },
   },
 };
