@@ -8,19 +8,14 @@
 </template>
 
 <script>
-const generateSlogan = () =>
-  Math.random().toString(36).concat(Date.now().toString(36)).substring(2);
-
 export default {
   name: 'Main',
-  data() {
-    return {
-      slogan: 'Generate your slogan',
-    };
+  props: {
+    slogan: String,
   },
   methods: {
     handleClick() {
-      this.slogan = generateSlogan();
+      this.$emit('generate-slogan');
     },
   },
 };
