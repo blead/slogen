@@ -1,27 +1,70 @@
 <template>
   <section class="section">
-    <label>
-      Number of tokens
-    </label>
-    <b-field class="min-max-tokens">
-      <input type="number" min="3" max="12" :value="minTokens" 
-      @change="handleChangeMin"
-      @input="handleChangeMin">
-      <span>-</span>
-      <input type="number" min="3" max="12" :value="maxTokens" 
-      @change="handleChangeMax"
-      @input="handleChangeMax">
-    </b-field>
+    <div class="card">
+      <header class="card-header">
+        <div class="card-header-title">
+          Number of tokens
+        </div>
+      </header>
+      <div class="card-content">
+        <b-field class="min-max-tokens">
+          <input type="number" min="3" max="12" :value="minTokens" 
+          @change="handleChangeMin"
+          @input="handleChangeMin">
+          <span>-</span>
+          <input type="number" min="3" max="12" :value="maxTokens" 
+          @change="handleChangeMax"
+          @input="handleChangeMax">
+        </b-field>
+      </div>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <div class="card-header-title">
+          Exclude Tokens
+        </div>
+      </header>
+      <div class="card-content">
+        <b-field>
+          <b-taginput 
+            @input="changeExclude"
+            @typing="getFilteredTags"
+            autocomplete :data="filteredTags"
+          ></b-taginput>
+        </b-field>
+      </div>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <div class="card-header-title">
+          Include Tokens
+        </div>
+      </header>
+      <div class="card-content">
+        <b-field>
+          <b-taginput 
+            @input="changeInclude"
+            @typing="getFilteredTags"
+            autocomplete :data="filteredTags"
+          ></b-taginput>
+        </b-field>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
+import tokens from '../generator/tokens';
+
 export default {
   name: 'CustomizePanel',
   data() {
     return {
       minTokens: 3,
       maxTokens: 6,
+      include: [],
+      exclude: [],
+      filteredTags: tokens,
     };
   },
   methods: {
@@ -50,6 +93,21 @@ export default {
       }
       this.maxTokens = e.target.value;
       this.$emit('change-config', {maxTokens: parseInt(e.target.value)});
+    },
+    changeInclude(include) {
+      this.include = include;
+      this.$emit('change-config', {include});
+    },
+    changeExclude(exclude) {
+      this.exclude = exclude;
+      this.$emit('change-config', {exclude});
+    },
+    getFilteredTags(text) {
+      this.filteredTags = tokens.filter(
+        (option) => {
+          return this.include.indexOf(option) == -1 && this.exclude.indexOf(option) == -1 && option.indexOf(text) >= 0
+        }
+      )
     }
   }
 }
