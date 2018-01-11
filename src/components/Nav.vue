@@ -16,7 +16,7 @@
           <router-link :to="{ name: 'FunFacts' }" class="navbar-item">
             Fun Facts
           </router-link>
-          <a class="navbar-item" href="https://github.com/blead/slogen">
+          <a class="navbar-item" href="https://github.com/blead/slogen" target="_blank">
             <span class="icon is-large is-hidden-touch">
               <FontAwesomeIcon :icon="github" size="lg"/>
             </span>
