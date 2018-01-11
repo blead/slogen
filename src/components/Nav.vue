@@ -14,7 +14,13 @@
       <div class="navbar-menu" :class="{ 'is-active': isMenuActive }">
         <div class="navbar-end">
           <a class="navbar-item" href="https://github.com/blead/slogen">
-            GitHub
+            <span class="icon is-large is-hidden-touch">
+              <FontAwesomeIcon :icon="github" size="lg"/>
+            </span>
+            <span class="is-hidden-desktop">
+              <FontAwesomeIcon :icon="github"/>
+              GitHub
+            </span>
           </a>
         </div>
       </div>
@@ -23,12 +29,23 @@
 </template>
 
 <script>
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
+import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
+
 export default {
   name: 'Nav',
+  components: {
+    FontAwesomeIcon,
+  },
   data() {
     return {
       isMenuActive: false,
     };
+  },
+  computed: {
+    github() {
+      return faGithub;
+    },
   },
   methods: {
     toggleMenu() {
