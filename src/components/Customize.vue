@@ -16,13 +16,11 @@
             <div class="card-content">
               <div class="content has-text-centered">
                 <h5>{{ slogan }}</h5>
-                <button class="button is-primary" @click="$emit('generate-slogan')">Generate</button>
+                <button class="button is-primary is-small" @click="$emit('generate-slogan')">Generate</button>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="section">
         <customize-panel
         @change-config="$emit('change-config', arguments[0])"/>
       </section>
