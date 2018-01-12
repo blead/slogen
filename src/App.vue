@@ -20,7 +20,7 @@ export default {
     return {
       isTransitionActive: false,
       slogan: 'Generate your slogan',
-      config: {}
+      config: {},
     };
   },
   methods: {
