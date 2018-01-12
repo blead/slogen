@@ -11,7 +11,7 @@
       </div>
       <div class="hero-body">
         <transition name="fade" mode="out-in">
-          <router-view :slogan="slogan" 
+          <router-view :slogan="slogan"
           @generate-slogan="$emit('generate-slogan')"
           @change-config="$emit('change-config', arguments[0])"
           />
@@ -44,10 +44,10 @@ export default {
 
 <style scoped>
 .delayed-fade-enter-active {
-  animation: 2s ease-out fade-in;
+  animation: 0.4s ease-out fade-in;
 }
 .delayed-fade-leave-active {
-  animation: 2s ease-in reverse fade-in;
+  animation: 0.4s ease-in reverse fade-in;
 }
 @keyframes fade-in {
   0% {
