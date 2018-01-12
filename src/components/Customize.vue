@@ -30,7 +30,7 @@
 
 <script>
 import Bar from './Bar';
-import CustomizePanel from './CustomizePanel'
+import CustomizePanel from './CustomizePanel';
 
 export default {
   name: 'Customize',
