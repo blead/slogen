@@ -5,36 +5,35 @@
     @after-enter="$emit('after-enter')"
     @before-leave="$emit('before-leave')"
   >
-    <section class="hero is-fullheight is-overlay">
-      <div class="hero-head">
-        <Nav/>
-      </div>
-      <div class="hero-body">
-        <transition name="fade" mode="out-in">
-          <router-view :slogan="slogan"
+    <Hero>
+      <Nav slot="head"/>
+      <transition name="fade" mode="out-in">
+        <router-view :slogan="slogan"
           @generate-slogan="$emit('generate-slogan')"
           @change-config="$emit('change-config', arguments[0])"
-          />
-        </transition>
-      </div>
-      <div class="hero-foot">
-          <router-link :to="{ name: 'Customize' }" class="button is-light is-radiusless is-fullwidth">
-            Customize
-          </router-link>
-      </div>
-    </section>
+        />
+      </transition>
+      <transition name="fade" mode="out-in" slot="foot">
+        <router-link :to="{ name: 'Customize' }"
+          class="button is-light is-radiusless is-fullwidth"
+          v-if="$route.name === 'Main'"
+        >
+          Customize
+        </router-link>
+      </transition>
+    </Hero>
   </transition>
 </template>
 
 <script>
+import Hero from './Hero';
 import Nav from './Nav';
-import Main from './Main';
 
 export default {
   name: 'Home',
   components: {
+    Hero,
     Nav,
-    Main,
   },
   props: {
     slogan: String,
