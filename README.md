@@ -5,19 +5,19 @@ It generates slogans.
 
 Required: [Git](http://git-scm.com), [Node.js](http://nodejs.org)
 
-1. Clone the repository
+1. Clone the repository.
 
     ```shell
     git clone https://github.com/blead/slogen.git
     ```
 
-2. Navigate to the project directory
+2. Navigate to the project directory.
 
     ```shell
     cd slogen
     ```
 
-3. Install dependencies
+3. Install dependencies.
 
     ```shell
     npm install
@@ -25,7 +25,7 @@ Required: [Git](http://git-scm.com), [Node.js](http://nodejs.org)
 
 ## Usage
 
-- Starting a development server
+- Start a development server.
 
     ```shell
     npm run dev
@@ -33,8 +33,13 @@ Required: [Git](http://git-scm.com), [Node.js](http://nodejs.org)
 
   The default port is `8080`.
 
-- Building for production
+- Build for production.
     ```shell
     npm run build
     ```
   The resulting files can be located inside `build` directory.
+
+- Deploy to GitHub Pages.
+    ```shell
+    npm run deploy
+    ````
