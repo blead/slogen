@@ -19,9 +19,6 @@ export default {
   data() {
     return {
       isTransitionActive: false,
-      // slogan: 'Generate your slogan',
-      // sloganIndices: [],
-      // config: {},
     };
   },
   computed: {
@@ -59,8 +56,6 @@ export default {
           config: JSON.stringify(config),
         },
       });
-      // this.config = Object.assign(this.config, config, this.config);
-      // console.log(this.config);
     },
     generateSlogan() {
       const { indices } = Generator.generateSlogan(this.config);
@@ -70,8 +65,6 @@ export default {
           result: JSON.stringify(indices),
         },
       });
-      // this.slogan = text;
-      // this.sloganIndices = indices;
     },
   },
 };

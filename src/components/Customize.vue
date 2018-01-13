@@ -11,7 +11,6 @@
         <router-link :to="{ name: 'Main', query: $route.query }" class="delete is-large" slot="right">
           Back
         </router-link>
-        <!-- <button class="delete is-large" slot="right" @click="$router.go(-1)">Back</button> -->
       </Bar>
       <section class="section">
         <div class="container">
