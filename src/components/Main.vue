@@ -49,10 +49,9 @@ export default {
       return encodeURIComponent(window.location);
     },
     facebookShareURL() {
-      return `https://www.facebook.com/sharer.php?u=${this.currentURL}`;
-      // return `https://www.facebook.com/dialog/share?app_id=1705726949489765&display=page&href=${window.location}` +
-      //   `&redirect_uri=${window.location}` +
-      //   `&quote=${this.$props.slogan}`;
+      return `https://www.facebook.com/dialog/share?app_id=1705726949489765&display=page&href=${this.currentURL}` +
+        `&redirect_uri=${this.currentURL}` +
+        `&quote=${this.$props.slogan}`;
     },
     twitterShareURL() {
       return `https://twitter.com/intent/tweet?text=${this.$props.slogan}` +
