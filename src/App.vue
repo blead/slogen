@@ -20,7 +20,8 @@ export default {
     return {
       isTransitionActive: false,
       slogan: 'Generate your slogan',
-      config: {}
+      sloganIndices: [],
+      config: {},
     };
   },
   methods: {
@@ -32,7 +33,9 @@ export default {
       console.log(this.config);
     },
     generateSlogan() {
-      this.slogan = Generator.generateSlogan(this.config);
+      const { text, indices } = Generator.generateSlogan(this.config);
+      this.slogan = text;
+      this.sloganIndices = indices;
     },
   },
 };

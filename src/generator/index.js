@@ -47,16 +47,33 @@ const generateSlogan = (config = {}) => { /* eslint-enable */
   }
 
   Array(15).fill().forEach(() => {
-    const a = randomInt(result.length + 1);
-    const b = randomInt(result.length + 1);
+    const a = randomInt(result.length);
+    const b = randomInt(result.length);
     const t = result[a];
     result[a] = result[b];
     result[b] = t;
   });
 
+  const indices = [];
+  result.forEach((item) => {
+    indices.push(tokens.indexOf(item));
+  });
+
+  return {
+    text: result.join(' '),
+    indices,
+  };
+};
+
+const loadSlogan = (indices) => {
+  const result = [];
+  indices.forEach((index) => {
+    result.push(tokens[index]);
+  });
   return result.join(' ');
 };
 
 export default {
   generateSlogan,
+  loadSlogan,
 };

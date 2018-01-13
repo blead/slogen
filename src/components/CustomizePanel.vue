@@ -70,26 +70,30 @@ export default {
   methods: {
     handleChangeMin(e) {
       const value = parseInt(e.target.value, 10);
-      if(value > this.maxTokens) {
-        e.preventDefault();
-        e.target.value = this.maxTokens;
-      }
+      
       if(value >= 12) {
         e.preventDefault();
         e.target.value = 12;
+      }
+
+      if(value > this.maxTokens) {
+        e.preventDefault();
+        e.target.value = this.maxTokens;
       }
       this.minTokens = e.target.value;
       this.$emit('change-config', {minTokens: parseInt(e.target.value)});
     },
     handleChangeMax(e) {
       const value = parseInt(e.target.value, 10);
-      if(value < this.minTokens) {
-        e.preventDefault();
-        e.target.value = this.minTokens;
-      }
+
       if(value >= 12) {
         e.preventDefault();
         e.target.value = 12;
+      }
+
+      if(value < this.minTokens) {
+        e.preventDefault();
+        e.target.value = this.minTokens;
       }
       this.maxTokens = e.target.value;
       this.$emit('change-config', {maxTokens: parseInt(e.target.value)});

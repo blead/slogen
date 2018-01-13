@@ -3,8 +3,9 @@
     <div class="container">
       <div class="navbar-brand">
         <router-link :to="{ name: 'Main' }" class="navbar-item has-text-weight-bold is-unselectable">
-          <span class="has-text-dark is-size-4">SloGen</span><sup class="is-size-7 is-uppercase">alpha</sup>
+          <span class="has-text-dark is-size-4">SloGen</span><sup class="is-size-6 wandek"><em>wandek</em></sup>
         </router-link>
+
         <div class="navbar-burger" :class="{ 'is-active': isMenuActive }" @click="toggleMenu">
           <span></span>
           <span></span>
@@ -57,3 +58,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .wandek {
+    font-family: 'Pacifico', cursive;
+    font-weight: lighter;
+  }
+</style>
