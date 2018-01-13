@@ -10,7 +10,7 @@
     </b-dropdown-item>
     <hr class="dropdown-divider">
     <b-dropdown-item has-link>
-      <a :href="facebookShareURL" target="_blank">
+      <a :href="facebookShareURL">
         <FontAwesomeIcon :icon="facebook" size="lg" fixed-width/>
         Facebook
       </a>
@@ -50,7 +50,9 @@ export default {
       return '';
     },
     currentURL() {
-      return encodeURIComponent(window.location);
+      return encodeURIComponent(
+        `${window.location.protocol}//${window.location.hostname}${window.location.pathname}#${this.$route.fullPath}`,
+      );
     },
     facebookShareURL() {
       return `https://www.facebook.com/dialog/share?app_id=1705726949489765&display=page&href=${this.currentURL}` +
