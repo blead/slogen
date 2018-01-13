@@ -8,7 +8,9 @@
     <div class="is-overlay">
       <Bar class="is-light">
         <h1 class="title">Customize</h1>
-        <button class="delete is-large" slot="right" @click="$router.go(-1)">Back</button>
+        <router-link :to="{ name: 'Main', query: $route.query }" class="delete is-large" slot="right">
+          Back
+        </router-link>
       </Bar>
       <section class="section">
         <div class="container">

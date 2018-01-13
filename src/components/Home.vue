@@ -14,7 +14,7 @@
         />
       </transition>
       <transition name="fade" mode="out-in" slot="foot">
-        <router-link :to="{ name: 'Customize' }"
+        <router-link :to="{ name: 'Customize', query: $route.query }"
           class="button is-light is-radiusless is-fullwidth"
           v-if="$route.name === 'Main'"
         >

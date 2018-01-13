@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <router-link :to="{ name: 'Main' }" class="navbar-item has-text-weight-bold is-unselectable">
+        <router-link :to="{ name: 'Main', query: $route.query }" class="navbar-item has-text-weight-bold is-unselectable">
           <span class="has-text-dark is-size-4">SloGen</span><sup class="is-size-6 wandek"><em>wandek</em></sup>
         </router-link>
 
@@ -14,7 +14,7 @@
       </div>
       <div class="navbar-menu" :class="{ 'is-active': isMenuActive }">
         <div class="navbar-end">
-          <router-link :to="{ name: 'FunFacts' }" class="navbar-item">
+          <router-link :to="{ name: 'FunFacts', query: $route.query }" class="navbar-item">
             Fun Facts
           </router-link>
           <a class="navbar-item" href="https://github.com/blead/slogen" target="_blank">
