@@ -19,23 +19,59 @@ export default {
   data() {
     return {
       isTransitionActive: false,
-      slogan: 'Generate your slogan',
-      sloganIndices: [],
-      config: {},
+      // slogan: 'Generate your slogan',
+      // sloganIndices: [],
+      // config: {},
     };
+  },
+  computed: {
+    slogan() {
+      if (this.sloganIndices.length) {
+        return Generator.loadSlogan(this.sloganIndices);
+      }
+      return 'Generate your slogan';
+    },
+    sloganIndices() {
+      try {
+        const indices = JSON.parse(this.$route.query.result);
+        return indices;
+      } catch (e) {
+        return [];
+      }
+    },
+    config() {
+      try {
+        const config = JSON.parse(this.$route.query.config);
+        return config;
+      } catch (e) {
+        return {};
+      }
+    },
   },
   methods: {
     setTransition(isActive = true) {
       this.isTransitionActive = isActive;
     },
     receiveConfigChange(config) {
-      this.config = Object.assign(this.config, config, this.config);
-      console.log(this.config);
+      this.$router.replace({
+        query: {
+          ...this.$route.query,
+          config: JSON.stringify(config),
+        },
+      });
+      // this.config = Object.assign(this.config, config, this.config);
+      // console.log(this.config);
     },
     generateSlogan() {
-      const { text, indices } = Generator.generateSlogan(this.config);
-      this.slogan = text;
-      this.sloganIndices = indices;
+      const { indices } = Generator.generateSlogan(this.config);
+      this.$router.replace({
+        query: {
+          ...this.$route.query,
+          result: JSON.stringify(indices),
+        },
+      });
+      // this.slogan = text;
+      // this.sloganIndices = indices;
     },
   },
 };

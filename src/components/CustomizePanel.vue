@@ -8,11 +8,11 @@
       </header>
       <div class="card-content">
         <b-field class="min-max-tokens">
-          <input type="number" min="3" max="12" :value="minTokens" 
+          <input type="number" min="3" max="12" :value="minTokens"
           @change="handleChangeMin"
           @input="handleChangeMin">
           <span>-</span>
-          <input type="number" min="3" max="12" :value="maxTokens" 
+          <input type="number" min="3" max="12" :value="maxTokens"
           @change="handleChangeMax"
           @input="handleChangeMax">
         </b-field>
@@ -26,7 +26,7 @@
       </header>
       <div class="card-content">
         <b-field>
-          <b-taginput 
+          <b-taginput
             @input="changeExclude"
             @typing="getFilteredTags"
             autocomplete :data="filteredTags"
@@ -42,7 +42,7 @@
       </header>
       <div class="card-content">
         <b-field>
-          <b-taginput 
+          <b-taginput
             @input="changeInclude"
             @typing="getFilteredTags"
             autocomplete :data="filteredTags"
@@ -71,50 +71,50 @@ export default {
     handleChangeMin(e) {
       const value = parseInt(e.target.value, 10);
 
-      if(value >= 12) {
+      if (value >= 12) {
         e.preventDefault();
         e.target.value = 12;
       }
 
-      if(value > this.maxTokens) {
+      if (value > this.maxTokens) {
         e.preventDefault();
         e.target.value = this.maxTokens;
       }
       this.minTokens = e.target.value;
-      this.$emit('change-config', {minTokens: parseInt(e.target.value)});
+      this.$emit('change-config', { minTokens: parseInt(e.target.value, 10) });
     },
     handleChangeMax(e) {
       const value = parseInt(e.target.value, 10);
 
-      if(value >= 12) {
+      if (value >= 12) {
         e.preventDefault();
         e.target.value = 12;
       }
 
-      if(value < this.minTokens) {
+      if (value < this.minTokens) {
         e.preventDefault();
         e.target.value = this.minTokens;
       }
       this.maxTokens = e.target.value;
-      this.$emit('change-config', {maxTokens: parseInt(e.target.value)});
+      this.$emit('change-config', { maxTokens: parseInt(e.target.value, 10) });
     },
     changeInclude(include) {
       this.include = include;
-      this.$emit('change-config', {include});
+      this.$emit('change-config', { include });
     },
     changeExclude(exclude) {
       this.exclude = exclude;
-      this.$emit('change-config', {exclude});
+      this.$emit('change-config', { exclude });
     },
     getFilteredTags(text) {
       this.filteredTags = tokens.filter(
-        (option) => {
-          return this.include.indexOf(option) == -1 && this.exclude.indexOf(option) == -1 && option.indexOf(text) >= 0
-        }
-      )
-    }
-  }
-}
+        option => this.include.indexOf(option) === -1 &&
+        this.exclude.indexOf(option) === -1 &&
+        option.indexOf(text) >= 0,
+      );
+    },
+  },
+};
 </script>
 
 <style scoped>

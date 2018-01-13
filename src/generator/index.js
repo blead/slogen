@@ -15,11 +15,11 @@ const randomInt = (bound, bound2) => {
 
 /* eslint-disable no-unused-vars */
 const generateSlogan = (config = {}) => { /* eslint-enable */
-  console.log('generateSlogan', config);
+  // console.log('generateSlogan', config);
   const minTokens = config.minTokens || 3;
   const maxTokens = config.maxTokens || 6;
   const expectedLength = randomInt(minTokens, maxTokens + 1);
-  console.log(minTokens, maxTokens, expectedLength);
+  // console.log(minTokens, maxTokens, expectedLength);
   const result = [];
   const queryToken = tokens.slice();
   if (config.exclude !== undefined) {
