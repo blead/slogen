@@ -17,6 +17,7 @@
               <div class="content has-text-centered">
                 <h5>{{ slogan }}</h5>
                 <button class="button is-primary is-small" @click="$emit('generate-slogan')">Generate</button>
+                <ShareButton :slogan="slogan" size="small"/>
               </div>
             </div>
           </div>
@@ -30,12 +31,14 @@
 
 <script>
 import Bar from './Bar';
-import CustomizePanel from './CustomizePanel'
+import ShareButton from './ShareButton';
+import CustomizePanel from './CustomizePanel';
 
 export default {
   name: 'Customize',
   components: {
     Bar,
+    ShareButton,
     CustomizePanel,
   },
   props: {

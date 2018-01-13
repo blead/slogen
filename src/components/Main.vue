@@ -4,12 +4,18 @@
       {{ slogan }}
     </h1>
     <button class="button is-primary is-large" @click="handleClick">Generate</button>
+    <ShareButton :slogan="slogan" size="large"/>
   </div>
 </template>
 
 <script>
+import ShareButton from './ShareButton';
+
 export default {
   name: 'Main',
+  components: {
+    ShareButton,
+  },
   props: {
     slogan: String,
   },

@@ -70,7 +70,7 @@ export default {
   methods: {
     handleChangeMin(e) {
       const value = parseInt(e.target.value, 10);
-      
+
       if(value >= 12) {
         e.preventDefault();
         e.target.value = 12;
