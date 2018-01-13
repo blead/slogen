@@ -15,13 +15,13 @@
       </b-dropdown-item>
       <hr class="dropdown-divider">
       <b-dropdown-item has-link>
-        <a href="">
+        <a :href="facebookShareURL" target="_blank">
           <FontAwesomeIcon :icon="facebook" size="lg" fixed-width/>
           Facebook
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link>
-        <a href="">
+        <a :href="twitterShareURL" target="_blank">
           <FontAwesomeIcon :icon="twitter" size="lg" fixed-width/>
           Twitter
         </a>
@@ -45,6 +45,16 @@ export default {
     slogan: String,
   },
   computed: {
+    facebookShareURL() {
+      return `https://www.facebook.com/sharer.php?u=${window.location}`;
+      // return `https://www.facebook.com/dialog/share?app_id=1705726949489765&display=page&href=${window.location}` +
+      //   `&redirect_uri=${window.location}` +
+      //   `&quote=${this.$props.slogan}`;
+    },
+    twitterShareURL() {
+      return `https://twitter.com/intent/tweet?text=${this.$props.slogan}` +
+        `&url=${window.location}`;
+    },
     shareAlt() {
       return faShareAlt;
     },
